@@ -74,15 +74,27 @@
     cursor: url("/cursor.svg") 12 12, auto !important;
   }
 
-  /* Hover cursor for interactive elements */
+  /* Hover cursor for interactive elements - more specific selectors */
   a,
   button,
   [role="button"],
   input,
   textarea,
   select,
-  .cursor-pointer {
-    cursor: url("/hover-cursor.svg") 12 12, pointer !important;
+  .cursor-pointer,
+  [data-radix-collection-item],
+  [data-state],
+  .flip-card,
+  .service-flip-card {
+    cursor: url("/hover-cursor.svg") 18 24, pointer !important;
+  }
+
+  /* Ensure buttons and interactive elements always show hover cursor */
+  button:hover,
+  a:hover,
+  [role="button"]:hover,
+  .cursor-pointer:hover {
+    cursor: url("/hover-cursor.svg") 18 24, pointer !important;
   }
 }
 
@@ -181,4 +193,106 @@
 
 .service-gradient-7 {
   background: linear-gradient(135deg, #eab308 0%, #f59e0b 100%);
+}
+
+/* Backlit effect for badges and small text highlights */
+.backlit-badge {
+  position: relative;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.backlit-badge::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(
+    ellipse 200px 100px at center,
+    rgba(59, 130, 246, 0.3),
+    rgba(147, 51, 234, 0.2),
+    transparent 70%
+  );
+  border-radius: inherit;
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.8;
+}
+
+.backlit-badge::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(
+    ellipse 150px 75px at center,
+    rgba(59, 130, 246, 0.4),
+    rgba(147, 51, 234, 0.3),
+    transparent 60%
+  );
+  border-radius: inherit;
+  z-index: -1;
+  filter: blur(4px);
+  opacity: 0.6;
+}
+
+/* Stronger backlit effect for featured badges */
+.backlit-badge-strong {
+  position: relative;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15));
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+.backlit-badge-strong::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  background: radial-gradient(
+    ellipse 250px 120px at center,
+    rgba(59, 130, 246, 0.4),
+    rgba(147, 51, 234, 0.3),
+    transparent 70%
+  );
+  border-radius: inherit;
+  z-index: -1;
+  filter: blur(12px);
+  opacity: 1;
+}
+
+.backlit-badge-strong::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(
+    ellipse 180px 90px at center,
+    rgba(59, 130, 246, 0.5),
+    rgba(147, 51, 234, 0.4),
+    transparent 60%
+  );
+  border-radius: inherit;
+  z-index: -1;
+  filter: blur(6px);
+  opacity: 0.8;
+}
+
+/* Subtle backlit for section headers */
+.backlit-text {
+  position: relative;
+  display: inline-block;
+}
+
+.backlit-text::before {
+  content: "";
+  position: absolute;
+  inset: -8px -12px;
+  background: radial-gradient(
+    ellipse 200px 60px at center,
+    rgba(59, 130, 246, 0.15),
+    rgba(147, 51, 234, 0.1),
+    transparent 70%
+  );
+  border-radius: 12px;
+  z-index: -1;
+  filter: blur(6px);
+  opacity: 0.7;
 }

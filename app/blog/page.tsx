@@ -90,7 +90,7 @@ export default function BlogPage() {
         {/* Hero Section */}
         <section className="py-16 bg-gradient-to-r from-blue-500/10 to-purple-600/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Badge variant="secondary" className="mb-4">
+            <Badge variant="secondary" className="mb-4 backlit-badge-strong">
               📚 Startify Blog
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -107,7 +107,7 @@ export default function BlogPage() {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-12">
-              <Badge variant="secondary" className="mb-4">
+              <Badge variant="secondary" className="mb-4 backlit-badge">
                 ⭐ Featured Articles
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold">Latest Insights</h2>
