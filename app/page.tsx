@@ -310,7 +310,7 @@ export default function HomePage() {
                   variant="outline"
                   size="lg"
                   className="z-30 text-lg px-8 py-4 border-white/20 text-white hover:bg-white/10 bg-transparent"
-                  onClick={() => console.log("View Our Work clicked")}
+                  onClick={() => (window.location.href = "/projects")}
                 >
                   View Our Work
                   <Eye className="ml-2 h-5 w-5" />
@@ -528,16 +528,12 @@ export default function HomePage() {
                   <h3 className="font-semibold text-lg mb-1">Ready to Experience the Startify Difference?</h3>
                   <p className="text-muted-foreground text-sm">Join 200+ businesses who made the smart choice</p>
                 </div>
-                <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg">
-                  <a
-                    href="https://calendly.com/informeddaily1/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center"
-                  >
-                    Get Started Today
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
+                <Button
+                  className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg"
+                  onClick={() => (window.location.href = "/contact")}
+                >
+                  Get Started Today
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>
@@ -748,10 +744,10 @@ export default function HomePage() {
                         <h4 className="font-semibold text-foreground mb-1">Phone</h4>
                         <p className="text-muted-foreground text-sm mb-2">Call us directly for immediate assistance</p>
                         <a
-                          href="tel:+15551234567"
+                          href="tel:+14377771763"
                           className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
                         >
-                          +1 (555) 123-4567
+                          +1 (437) 777-1763
                         </a>
                       </div>
                     </div>
@@ -764,10 +760,10 @@ export default function HomePage() {
                         <h4 className="font-semibold text-foreground mb-1">Email</h4>
                         <p className="text-muted-foreground text-sm mb-2">Send us a detailed message</p>
                         <a
-                          href="mailto:hello@startify.ca"
+                          href="mailto:startifymedia1@gmail.com"
                           className="text-green-600 dark:text-green-400 font-medium hover:underline"
                         >
-                          hello@startify.ca
+                          startifymedia1@gmail.com
                         </a>
                       </div>
                     </div>
@@ -780,10 +776,10 @@ export default function HomePage() {
                         <h4 className="font-semibold text-foreground mb-1">WhatsApp</h4>
                         <p className="text-muted-foreground text-sm mb-2">Quick chat for urgent inquiries</p>
                         <a
-                          href="https://wa.me/15551234567"
+                          href="https://wa.me/14377771763"
                           className="text-emerald-600 dark:text-emerald-400 font-medium hover:underline"
                         >
-                          +1 (555) 123-4567
+                          +1 (437) 777-1763
                         </a>
                       </div>
                     </div>
@@ -795,7 +791,9 @@ export default function HomePage() {
                       <div>
                         <h4 className="font-semibold text-foreground mb-1">Office</h4>
                         <p className="text-muted-foreground text-sm mb-2">Visit us or schedule a meeting</p>
-                        <p className="text-purple-600 dark:text-purple-400 font-medium">Toronto, ON, Canada</p>
+                        <p className="text-purple-600 dark:text-purple-400 font-medium">
+                          41 George St S, Brampton, ON L6Y 2E1
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -806,300 +804,19 @@ export default function HomePage() {
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Monday - Friday</span>
-                      <span className="font-medium text-foreground">9:00 AM - 6:00 PM EST</span>
+                      <span className="font-medium text-foreground">9:00 AM - 4:00 PM EST</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Saturday</span>
-                      <span className="font-medium text-foreground">10:00 AM - 4:00 PM EST</span>
+                      <span className="font-medium text-foreground">Closed</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Sunday</span>
                       <span className="font-medium text-foreground">Closed</span>
                     </div>
-                  </div>
-                  <div className="mt-4 pt-4 border-t border-blue-200/50 dark:border-blue-800/50">
-                    <p className="text-xs text-muted-foreground">
-                      <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                      We typically respond within 2 hours during business hours
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </ScrollAnimation>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Logos */}
-      <ScrollAnimation direction="up" className="py-12 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 backlit-text">Trusted by Industry Leaders</h2>
-          </div>
-          <ScrollAnimation direction="scale" stagger={true} staggerDelay={0.1} delay={0.2}>
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center opacity-60 hover:opacity-100 transition-opacity">
-              {clientLogos.map((client, index) => (
-                <div key={index} className="flex items-center justify-center">
-                  <img
-                    src={client.logo || "/placeholder.svg"}
-                    alt={client.name}
-                    className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-300"
-                  />
-                </div>
-              ))}
-            </div>
-          </ScrollAnimation>
-        </div>
-      </ScrollAnimation>
-
-      {/* Testimonials Carousel */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimation direction="up">
-            <div className="text-center mb-16">
-              <Badge variant="secondary" className="mb-4 backlit-badge">
-                ⭐ Client Success Stories
-              </Badge>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">What Our Clients Say</h2>
-            </div>
-          </ScrollAnimation>
-
-          <ScrollAnimation direction="up" stagger={true} staggerDelay={0.15} delay={0.3}>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {testimonials.map((testimonial, index) => (
-                <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
-                  <CardContent className="p-0">
-                    <div className="flex mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                    <p className="text-muted-foreground mb-4 text-sm italic">"{testimonial.content}"</p>
-                    <div className="flex items-center gap-3">
-                      <img
-                        src={testimonial.image || "/placeholder.svg"}
-                        alt={testimonial.name}
-                        className="w-10 h-10 rounded-full"
-                      />
-                      <div>
-                        <div className="font-semibold text-sm">{testimonial.name}</div>
-                        <div className="text-xs text-muted-foreground">
-                          {testimonial.role}, {testimonial.company}
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </ScrollAnimation>
-        </div>
-      </section>
-
-      {/* Enhanced CTA Section - Book Free Call */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimation direction="up">
-            <div className="text-center mb-12">
-              <Badge variant="secondary" className="mb-4 backlit-badge">
-                📞 Let's Talk Business
-              </Badge>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Book a free 30-minute consultation and get a custom growth strategy for your business.
-              </p>
-            </div>
-          </ScrollAnimation>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Contact Form - Left Side with Floating Nav Background */}
-            <ScrollAnimation direction="left" delay={0.2}>
-              <div
-                className="p-8 rounded-2xl shadow-2xl border border-white/10"
-                style={{
-                  background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)",
-                  backdropFilter: "blur(20px)",
-                }}
-              >
-                <div className="text-white">
-                  <h3 className="text-2xl font-bold mb-2">Get Your Free Consultation</h3>
-                  <p className="text-gray-300 mb-6">
-                    Fill out the form below and we'll get back to you within 24 hours.
-                  </p>
-
-                  <form className="space-y-4">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <input
-                        type="text"
-                        placeholder="First Name"
-                        className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      />
-                      <input
-                        type="text"
-                        placeholder="Last Name"
-                        className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      />
-                    </div>
-                    <input
-                      type="email"
-                      placeholder="Email Address"
-                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                    <input
-                      type="tel"
-                      placeholder="Phone Number"
-                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                    <select className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                      <option value="" className="bg-gray-800">
-                        Select Service Needed
-                      </option>
-                      <option value="website" className="bg-gray-800">
-                        Website Development
-                      </option>
-                      <option value="crm" className="bg-gray-800">
-                        CRM Development
-                      </option>
-                      <option value="app" className="bg-gray-800">
-                        Custom App Development
-                      </option>
-                      <option value="social" className="bg-gray-800">
-                        Social Media Management
-                      </option>
-                      <option value="ads" className="bg-gray-800">
-                        Paid Ads Management
-                      </option>
-                      <option value="design" className="bg-gray-800">
-                        UI/UX Design
-                      </option>
-                      <option value="strategy" className="bg-gray-800">
-                        Digital Strategy
-                      </option>
-                      <option value="multiple" className="bg-gray-800">
-                        Multiple Services
-                      </option>
-                    </select>
-                    <textarea
-                      placeholder="Tell us about your project (optional)"
-                      rows={3}
-                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                    ></textarea>
-                    <button
-                      type="button"
-                      onClick={() => window.open("https://calendly.com/informeddaily1/30min", "_blank")}
-                      className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
-                    >
-                      <Calendar className="h-4 w-4" />
-                      Book Free Consultation
-                    </button>
-                  </form>
-
-                  <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
-                    <h4 className="font-semibold mb-3 text-white">What You'll Get:</h4>
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-400 flex-shrink-0" />
-                        <span className="text-sm text-gray-300">30-minute strategy session</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-400 flex-shrink-0" />
-                        <span className="text-sm text-gray-300">Custom growth plan</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-400 flex-shrink-0" />
-                        <span className="text-sm text-gray-300">No commitment required</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-400 flex-shrink-0" />
-                        <span className="text-sm text-gray-300">Same-day response</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ScrollAnimation>
-
-            {/* Contact Information - Right Side with Sober Look */}
-            <ScrollAnimation direction="right" delay={0.4}>
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-2xl font-bold mb-6 text-foreground">Get In Touch</h3>
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4 p-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
-                      <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Phone className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Phone</h4>
-                        <p className="text-muted-foreground text-sm mb-2">Call us directly for immediate assistance</p>
-                        <a
-                          href="tel:+15551234567"
-                          className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
-                        >
-                          +1 (555) 123-4567
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4 p-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
-                      <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Mail className="h-5 w-5 text-green-600 dark:text-green-400" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Email</h4>
-                        <p className="text-muted-foreground text-sm mb-2">Send us a detailed message</p>
-                        <a
-                          href="mailto:hello@startify.ca"
-                          className="text-green-600 dark:text-green-400 font-medium hover:underline"
-                        >
-                          hello@startify.ca
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4 p-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
-                      <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <MessageSquare className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">WhatsApp</h4>
-                        <p className="text-muted-foreground text-sm mb-2">Quick chat for urgent inquiries</p>
-                        <a
-                          href="https://wa.me/15551234567"
-                          className="text-emerald-600 dark:text-emerald-400 font-medium hover:underline"
-                        >
-                          +1 (555) 123-4567
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4 p-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
-                      <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <MapPin className="h-5 w-5 text-purple-600 dark:text-purple-400" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Office</h4>
-                        <p className="text-muted-foreground text-sm mb-2">Visit us or schedule a meeting</p>
-                        <p className="text-purple-600 dark:text-purple-400 font-medium">Toronto, ON, Canada</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 rounded-lg border border-blue-200/50 dark:border-blue-800/50">
-                  <h4 className="font-semibold text-foreground mb-3">Business Hours</h4>
-                  <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Monday - Friday</span>
-                      <span className="font-medium text-foreground">9:00 AM - 6:00 PM EST</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Saturday</span>
-                      <span className="font-medium text-foreground">10:00 AM - 4:00 PM EST</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Sunday</span>
-                      <span className="font-medium text-foreground">Closed</span>
+                      <span className="text-muted-foreground">Emergency Support</span>
+                      <span className="font-medium text-green-600">24/7 Available</span>
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t border-blue-200/50 dark:border-blue-800/50">

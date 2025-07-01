@@ -4,10 +4,9 @@ import Navbar from "@/components/navbar"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import GSAPScrollAnimation from "@/components/gsap-scroll-animation"
+import ScrollAnimation from "@/components/scroll-animation"
 import { Heart, Lightbulb, Shield, TrendingUp, Award, Users, Globe, Zap } from "lucide-react"
 import { DotLottieReact } from "@lottiefiles/dotlottie-react"
-import { useEffect } from "react"
 
 const coreValues = [
   {
@@ -120,66 +119,13 @@ const trustIndicators = [
 ]
 
 export default function AboutPageClient() {
-  useEffect(() => {
-    const handleTimelineScroll = () => {
-      const timelineItems = document.querySelectorAll(".timeline-item")
-
-      timelineItems.forEach((item, index) => {
-        const rect = item.getBoundingClientRect()
-        const windowHeight = window.innerHeight
-        const card = item.querySelector(".timeline-card")
-        const dot = item.querySelector(".timeline-dot")
-
-        // Check if item is in viewport
-        const isInViewport = rect.top < windowHeight * 0.8 && rect.bottom > windowHeight * 0.2
-
-        if (isInViewport) {
-          // Animate in
-          setTimeout(() => {
-            if (card) card.classList.add("animate-in")
-            if (card) card.classList.remove("animate-out")
-          }, index * 100)
-
-          setTimeout(
-            () => {
-              if (dot) dot.classList.add("animate-in")
-              if (dot) dot.classList.remove("animate-out")
-            },
-            index * 100 + 200,
-          )
-        } else {
-          // Animate out
-          if (card) {
-            card.classList.remove("animate-in")
-            card.classList.add("animate-out")
-          }
-          if (dot) {
-            dot.classList.remove("animate-in")
-            dot.classList.add("animate-out")
-          }
-        }
-      })
-    }
-
-    // Add scroll listener
-    window.addEventListener("scroll", handleTimelineScroll)
-
-    // Initial check
-    handleTimelineScroll()
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("scroll", handleTimelineScroll)
-    }
-  }, [])
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
       <div className="pt-20">
         {/* Hero Section */}
-        <GSAPScrollAnimation animation="fadeUp" className="py-16 bg-gradient-to-r from-blue-500/10 to-purple-600/10">
+        <ScrollAnimation animation="fadeUp" className="py-16 bg-gradient-to-r from-blue-500/10 to-purple-600/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Badge variant="secondary" className="mb-4 backlit-badge-strong">
               🏆 Canada's Most Trusted IT Partner
@@ -192,24 +138,20 @@ export default function AboutPageClient() {
               leading enterprises for mission-critical digital transformation initiatives.
             </p>
           </div>
-        </GSAPScrollAnimation>
+        </ScrollAnimation>
 
         {/* Trust Indicators */}
-        <GSAPScrollAnimation
-          animation="slideUp"
-          delay={0.2}
-         className="py-16 bg-gradient-to-r from-yellow-600 to-orange-400"
-        >
+        <ScrollAnimation animation="slideUp" delay={0.2} className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <GSAPScrollAnimation animation="fadeUp" delay={0.1}>
+            <ScrollAnimation animation="fadeUp" delay={0.1}>
               <div className="text-center mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 backlit-text">
                   Trusted by Industry Leaders
                 </h2>
                 <p className="text-blue-100">Proven track record of delivering exceptional results</p>
               </div>
-            </GSAPScrollAnimation>
-            <GSAPScrollAnimation animation="fadeUp" stagger={0.1} delay={0.3}>
+            </ScrollAnimation>
+            <ScrollAnimation animation="fadeUp" stagger={0.1} delay={0.3}>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
                 {trustIndicators.map((indicator, index) => (
                   <div key={index} className="text-center bg-white/10 rounded-lg p-4 backdrop-blur-sm">
@@ -221,15 +163,15 @@ export default function AboutPageClient() {
                   </div>
                 ))}
               </div>
-            </GSAPScrollAnimation>
+            </ScrollAnimation>
           </div>
-        </GSAPScrollAnimation>
+        </ScrollAnimation>
 
         {/* Mission & Vision with Responsive Lottie */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <GSAPScrollAnimation animation="fadeLeft">
+              <ScrollAnimation animation="fadeLeft">
                 <div>
                   <Badge variant="secondary" className="mb-4 backlit-badge">
                     🎯 Our Mission
@@ -261,10 +203,10 @@ export default function AboutPageClient() {
                     </div>
                   </div>
                 </div>
-              </GSAPScrollAnimation>
+              </ScrollAnimation>
 
               {/* Responsive Lottie Animation */}
-              <GSAPScrollAnimation animation="fadeRight" delay={0.3}>
+              <ScrollAnimation animation="fadeRight" delay={0.3}>
                 <div className="relative order-first lg:order-last">
                   {/* Desktop/Tablet: Side by side */}
                   <div className="hidden md:block">
@@ -285,13 +227,13 @@ export default function AboutPageClient() {
                     />
                   </div>
                 </div>
-              </GSAPScrollAnimation>
+              </ScrollAnimation>
             </div>
           </div>
         </section>
 
         {/* Core Values */}
-        <GSAPScrollAnimation animation="fadeUp" className="py-20 bg-muted/30">
+        <ScrollAnimation animation="fadeUp" className="py-20 bg-muted/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <Badge variant="secondary" className="mb-4 backlit-badge">
@@ -304,7 +246,7 @@ export default function AboutPageClient() {
               </p>
             </div>
 
-            <GSAPScrollAnimation animation="fadeUp" stagger={0.2} delay={0.3}>
+            <ScrollAnimation animation="fadeUp" stagger={0.2} delay={0.3}>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {coreValues.map((value, index) => (
                   <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
@@ -318,12 +260,12 @@ export default function AboutPageClient() {
                   </Card>
                 ))}
               </div>
-            </GSAPScrollAnimation>
+            </ScrollAnimation>
           </div>
-        </GSAPScrollAnimation>
+        </ScrollAnimation>
 
         {/* Leadership Team */}
-        <GSAPScrollAnimation animation="fadeUp" className="py-20">
+        <ScrollAnimation animation="fadeUp" className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <Badge variant="secondary" className="mb-4 backlit-badge">
@@ -335,7 +277,7 @@ export default function AboutPageClient() {
               </p>
             </div>
 
-            <GSAPScrollAnimation animation="scale" stagger={0.15} delay={0.2}>
+            <ScrollAnimation animation="scale" stagger={0.15} delay={0.2}>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {leadershipTeam.map((member, index) => (
                   <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
@@ -387,12 +329,12 @@ export default function AboutPageClient() {
                   </Card>
                 ))}
               </div>
-            </GSAPScrollAnimation>
+            </ScrollAnimation>
           </div>
-        </GSAPScrollAnimation>
+        </ScrollAnimation>
 
-        {/* Enhanced Timeline */}
-        <GSAPScrollAnimation animation="fadeUp" className="py-20 bg-muted/30">
+        {/* Enhanced Timeline with Fixed Animation */}
+        <ScrollAnimation animation="fadeUp" className="py-20 bg-muted/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <Badge variant="secondary" className="mb-4 backlit-badge">
@@ -405,16 +347,17 @@ export default function AboutPageClient() {
             </div>
 
             <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-blue-500 to-purple-600 timeline-line"></div>
+              <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-blue-500 to-purple-600"></div>
               <div className="space-y-12">
                 {companyMilestones.map((milestone, index) => (
-                  <div
+                  <ScrollAnimation
                     key={index}
-                    className={`timeline-item relative flex items-center ${index % 2 === 0 ? "justify-start" : "justify-end"}`}
-                    data-index={index}
+                    direction="up"
+                    delay={index * 0.1}
+                    className={`relative flex items-center ${index % 2 === 0 ? "justify-start" : "justify-end"}`}
                   >
                     <div className={`w-1/2 ${index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"}`}>
-                      <Card className="p-6 hover:shadow-lg transition-shadow timeline-card opacity-0 transform translate-y-8">
+                      <Card className="p-6 hover:shadow-lg transition-shadow">
                         <CardContent className="p-0">
                           <div className="flex items-center gap-2 mb-2">
                             <div className="text-2xl font-bold text-blue-600">{milestone.year}</div>
@@ -430,16 +373,16 @@ export default function AboutPageClient() {
                         </CardContent>
                       </Card>
                     </div>
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-background timeline-dot opacity-0 scale-0"></div>
-                  </div>
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-background"></div>
+                  </ScrollAnimation>
                 ))}
               </div>
             </div>
           </div>
-        </GSAPScrollAnimation>
+        </ScrollAnimation>
 
         {/* CTA */}
-        <GSAPScrollAnimation animation="scale" className="py-20 bg-gradient-to-r from-blue-500 to-purple-600">
+        <ScrollAnimation animation="scale" className="py-20 bg-gradient-to-r from-blue-500 to-purple-600">
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               Ready to Partner with Canada's Most Trusted IT Experts?
@@ -461,46 +404,14 @@ export default function AboutPageClient() {
                 size="lg"
                 variant="outline"
                 className="text-lg px-8 py-3 border-white/20 text-white hover:bg-white/10 bg-transparent"
+                onClick={() => (window.location.href = "/projects")}
               >
                 View Success Stories
               </Button>
             </div>
           </div>
-        </GSAPScrollAnimation>
+        </ScrollAnimation>
       </div>
-      <style jsx>{`
-        .timeline-item {
-          transition: all 0.6s ease;
-        }
-        
-        .timeline-card {
-          transition: all 0.8s cubic-bezier(0.25, 0.25, 0, 1);
-        }
-        
-        .timeline-dot {
-          transition: all 0.6s cubic-bezier(0.25, 0.25, 0, 1);
-        }
-        
-        .timeline-card.animate-in {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        
-        .timeline-dot.animate-in {
-          opacity: 1;
-          transform: translateX(-50%) scale(1);
-        }
-        
-        .timeline-card.animate-out {
-          opacity: 0;
-          transform: translateY(32px);
-        }
-        
-        .timeline-dot.animate-out {
-          opacity: 0;
-          transform: translateX(-50%) scale(0);
-        }
-      `}</style>
     </div>
   )
 }
