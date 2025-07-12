@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import CustomCursor from "@/components/custom-cursor"
 import "./globals.css"
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: {
@@ -115,6 +116,8 @@ export default function RootLayout({
       <body>
         <CustomCursor />
         {children}
+                <Analytics />
+
       </body>
     </html>
   )
